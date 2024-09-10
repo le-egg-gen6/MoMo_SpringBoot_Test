@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: paypal_service
+
+
+paypal:
+  client-id: -----------------Your Client ID(Keep it secret)-------------------
+  client-secret: -------------------------Your Client Secret(Keep it secret)--------------------------
+  mode: sandbox #Sandbox for Testing, Live for Production
