@@ -4,7 +4,6 @@ import com.paypal.api.payments.Links;
 import com.paypal.api.payments.Payment;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.view.RedirectView;
@@ -24,7 +23,7 @@ public class PaymentController {
         return "index";
     }
 
-    @PostMapping("/payment/create")
+    @GetMapping("/payment/create")
     public RedirectView createPayment(
             @RequestParam("method") String method,
             @RequestParam("amount") String amount,
@@ -56,7 +55,7 @@ public class PaymentController {
     @GetMapping("/payment/success")
     public String paymentSuccess(
             @RequestParam("paymentId") String paymentId,
-            @RequestParam("payerId") String payerId
+            @RequestParam("PayerID") String payerId
     ) {
 
         Payment payment = paypalService.executePayment(paymentId, payerId);
